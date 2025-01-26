@@ -35,6 +35,10 @@ https://youtu.be/yJCwNY3K8kQ
 BBFrames is the first layer output by the TBS6903x. The UHRIT files are located directly inside. Infact, you can see the bbframe headers when you inspect the output.<p>
 ![BBheader](https://github.com/user-attachments/assets/115ec0f4-57ef-48aa-ad3f-1d8759176d04)
 The first task is to remove the bbheaders and join the frames. Make a folder for your work e.g. `E:\SDR\GK-2A\UHRIT`. Copy the python files `new.py` and `RemoveSpaceHeaders.py` to this folder. Next is to purge the headers for bbframes and the CADU.
-<br><br>Open `new.py` and insert the name of your bbframes file on the following line: `with open(r'E:\DVB_stream\0.0E_1069.989_H_15622_(2025-01-26 11.14.46)_dump.ts','rb') as stream:`
-   
+<br><br>Open `new.py` and insert the name of your bbframes/transport stream ".ts" file on the following line: `with open(r'E:\DVB_stream\0.0E_1069.989_H_15622_(2025-01-26 11.14.46)_dump.ts','rb') as stream:`
+<br>Goto DOS prompt and run `python new.py` which will produce an output file `test2.bin` in your folder.    
+<br>
+Goto a hexeditor and open `test2.bin`. This contains all 23 segments per channel for which there are 16.<br>
+To search a segment, locate the file name in the header:
+![image](https://github.com/user-attachments/assets/c651f79d-f3b0-451f-a476-9a2fe4ba8312)
 
