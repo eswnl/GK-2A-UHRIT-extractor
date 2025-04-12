@@ -34,11 +34,41 @@ https://youtu.be/yJCwNY3K8kQ
 # How to extract from BBFRAMES
 BBFrames is the first layer output by the TBS6903x. The UHRIT files are located directly inside. Infact, you can see the bbframe headers when you inspect the output.<p>
 ![BBheader](https://github.com/user-attachments/assets/115ec0f4-57ef-48aa-ad3f-1d8759176d04)
-The first task is to remove the bbheaders and join the frames. Make a folder for your work e.g. `E:\SDR\GK-2A\UHRIT`. Copy the python files `new.py` and `RemoveSpaceHeaders.py` to this folder. Next is to purge the headers for bbframes and the CADU.
-<br><br>Open `new.py` and insert the name of your bbframes/transport stream ".ts" file on the following line: `with open(r'E:\DVB_stream\0.0E_1069.989_H_15622_(2025-01-26 11.14.46)_dump.ts','rb') as stream:`
-<br>Goto DOS prompt and run `python new.py` which will produce an output file `test2.bin` in your folder.    
+The first task is to remove the bbheaders and join the frames. Make a folder for your work e.g. `E:\SDR\GK-2A\UHRIT`. Copy the python files `new.py` and `RemoveSpaceHeaders.py` to this folder. 
+
+<br>Goto DOS prompt and run `python new.py "path and name to the transport stream.ts"` which will produce an output file `test2.bin` in your folder. For example:
+`E:\SDR\GK-2A\UHRIT>python new.py "E:\DVB_stream\0.0E_1070.011_H_15622_(2025-04-12 16.16.48)_dump.ts"`
 <br>
 Goto a hexeditor and open `test2.bin`. This contains all 23 segments per channel for which there are 16.<br>
-To search a segment, locate the file name in the header:
-![image](https://github.com/user-attachments/assets/c651f79d-f3b0-451f-a476-9a2fe4ba8312)
+## How to extract from CADU
+If are using an SDR and software (e.g. Satdump) that receives and demodulates the DVB-S2 signal, or skips the BBFRAMES and outputs the CADU directly, the above code will also work. You just need to type:
+`E:\SDR\GK-2A\UHRIT>python new.py "E:\file.cadu"`
+
+# Get the segment
+Goto the beginning of the segment ("3GEOS" marks the start, so always search this). Put the cursor after the "÷" sign.
+Then from here select all the bytes until you reach the null bytes preceeding the next segment.<br>
+<br>
+![image](https://github.com/user-attachments/assets/0dcd07c9-4881-43cc-890e-10324de94c87)
+![image](https://github.com/user-attachments/assets/52fc925f-169f-450c-a134-4b5363c926cd)
+
+Note I use HxD hex editor (https://mh-nexus.de/en/hxd/). There are some useful shortcuts, e.g. 
+1. Alt+Insert copies the current offset position.
+2. Ctrl+E allows you to select data range using that offset as a starting point (paste in the offset)<br>
+
+![image](https://github.com/user-attachments/assets/c97266f6-4028-48e1-8480-d135e3b8d5a9)
+
+Copy the selection and paste in a new file. Save as "test3.bin" to the usual folder.
+Goto dos prompt and run `python removespaceheaders.py`. It should output a uhrit file such as:
+`IMG_FD_043_VI004_20250412_071736_18.uhrit`
+
+# Decryption and image
+From this point, you can use Sam's (VKSDR) code to produce the output images in a similar fashion to LRIT and HRIT. Unfortunately, SatDump cannot work with .xrit files, so this process needs to be done manually.
+<br>See the github site:
+https://github.com/sam210723/xrit-rx<br>
+1. Run `python xrit-decrypt.py` to decrypt the uhrit file.
+2. Run `python lrit-img.py` to output the image file.
+Note:
+The image format uses jpeg2000 format. If you open "lrit-img.py" and edit the part as follows.<br>
+![image](https://github.com/user-attachments/assets/3b305359-aad4-4544-96f5-ff932a461fae)
+
 
