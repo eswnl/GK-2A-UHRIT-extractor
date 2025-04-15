@@ -46,7 +46,7 @@ If are using an SDR and software (e.g. Satdump) that receives and demodulates th
 
 # Get the segment
 Goto the beginning of the segment ("3GEOS" marks the start, so always search this). Put the cursor after the "÷" sign.
-Then from here select all the bytes until you reach the null bytes preceeding the next segment.<br>
+Then from here select all the bytes until you reach the null bytes (the dots) preceeding the next segment. Note the "3GEOS" marking the start of the next segment.<br>
 <br>
 ![image](https://github.com/user-attachments/assets/0dcd07c9-4881-43cc-890e-10324de94c87)
 ![image](https://github.com/user-attachments/assets/52fc925f-169f-450c-a134-4b5363c926cd)
