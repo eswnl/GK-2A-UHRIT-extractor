@@ -62,13 +62,23 @@ Goto dos prompt and run `python removespaceheaders.py`. It should output a uhrit
 `IMG_FD_043_VI004_20250412_071736_18.uhrit`
 
 # Decryption and image
-From this point, you can use Sam's (VKSDR) code to produce the output images in a similar fashion to LRIT and HRIT. Unfortunately, SatDump cannot work with .xrit files, so this process needs to be done manually.
+At this point, you can use Sam's (VKSDR) code to produce the output images in a similar fashion to LRIT and HRIT. Unfortunately, SatDump cannot work with .xrit files, so this process needs to be done manually.
 <br>See the github site:
 https://github.com/sam210723/xrit-rx<br>
-1. Run `python xrit-decrypt.py` to decrypt the uhrit file.
-2. Run `python lrit-img.py` to output the image file.
-Note:
-The image format uses jpeg2000 format. If you open "lrit-img.py" and edit the part as follows.<br>
+1. Open `lrit-img.py` and change the image format. UHRIT image format uses jpeg2000 format. If you open "lrit-img.py" and edit the part as follows.<br>
 ![image](https://github.com/user-attachments/assets/3b305359-aad4-4544-96f5-ff932a461fae)
+1. Run `python xrit-decrypt.py` to decrypt the uhrit file.<br>
+   The command is `python xrit-decrypt.py <decrypted key message name(file.bin.dec)> <uhrit file(.uhrit)>`
+3. Run `python lrit-img.py` to output the image file.<br>
+   The command is `python lrit-img.py <decrypted uhrit file (uhrit.dec)>`
+# Results
+The above procedure will result in just one segment. If you have the time, you can decode all 23 segments in a channel. Unfortunately I have not managed to automate this part. <br>Also if you want full RGB images, you will need the VI004, VI005, VI006 channel contributions.<br>
+The below images have been produced using 2 segments - which is good enough to get high resolution images.<br>
+![lab-compose3](https://github.com/user-attachments/assets/68579833-3bc5-4cfa-9de9-abc7273a8683)<p>
+![image](https://github.com/user-attachments/assets/d313bdad-8e7a-46a6-a971-248e67d46237)<p>
+![image](https://github.com/user-attachments/assets/5e6a076f-022b-4765-930d-c72e0da298f0)<p>
+
+## Getting full (22k) resolution RGB.
+The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
 
 
