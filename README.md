@@ -77,6 +77,7 @@ The below images have been produced using 2 segments - which is good enough to g
 ![lab-compose3](https://github.com/user-attachments/assets/68579833-3bc5-4cfa-9de9-abc7273a8683)<p>
 ![image](https://github.com/user-attachments/assets/d313bdad-8e7a-46a6-a971-248e67d46237)<p>
 ![image](https://github.com/user-attachments/assets/5e6a076f-022b-4765-930d-c72e0da298f0)<p>
+![image](https://github.com/user-attachments/assets/5cfb1861-a25d-4ff9-aa56-d57da0c89528)<p>
 
 ## Getting full (22k) resolution RGB.
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
