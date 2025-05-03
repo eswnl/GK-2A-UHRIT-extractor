@@ -8,10 +8,12 @@ GK-2A is a Korean Weather Satellite. It sends images every 10 minutes on L and X
 There are 2 methods to get the DVB-S2 signal:
 1. SDR<br>
    SatDump can demodulate DVB-S2. See: https://www.satdump.org/
-2. Using a commercial DVB-S2 receiver. The advantage is that a hardware DVB-S2 receiver can afford the user to smaller dishes due to better lock at lower SNR. If using laptop you will need a PCI to SmartExpress socket (if your laptop has one)<p>
+   ![SatDump](https://github.com/user-attachments/assets/31bf75a3-d5ca-4e62-ad80-0b38b10400e9)
+
+3. Using a commercial DVB-S2 receiver. The advantage is that a hardware DVB-S2 receiver can afford the user smaller dishes due to better lock at lower SNR. If using laptop you will need a PCI to SmartExpress socket (if your laptop has one)<p>
    ![image](https://github.com/user-attachments/assets/92f19a46-60df-4a15-94b2-1e21b97f5998)
 # Methods for decoding images
-1. SatDump - decoder is work in progress
+1. SatDump - no decoder available
 2. Python scripts - this is the method we will look at here. These simple scripts will simply locate the image portions without any error checking. But if your SNR is plenty and the DVB-S2 is doing its error correction, this method should be able to get images with no problem.
 # Equipment needed
 1. 1.5m or larger prime dish. A mesh dish with holes no larger 4mm will also work (1/10 lambda rule).
