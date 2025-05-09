@@ -81,6 +81,8 @@ The below images have been produced using 2 segments - which is good enough to g
 ![image](https://github.com/user-attachments/assets/5e6a076f-022b-4765-930d-c72e0da298f0)<p>
 ![image](https://github.com/user-attachments/assets/5cfb1861-a25d-4ff9-aa56-d57da0c89528)<p>
 ![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)<p>
+![image](https://github.com/user-attachments/assets/e60a1876-a401-4f73-8956-64492ec53154)<p>
+
 
 
 ## Getting full (22k) resolution RGB.
