@@ -79,6 +79,8 @@ Execute "make.bat" and enter the channel name, e.g. IMG_FD_052_VI004_20240914_08
 `FirstSegment(1-23)?1`<br>
 `LastSegment(1-23)?23`<br>
 
+If you enter `make-halfscale.bat`, this will create the images at half their full resolution.
+
 Go into explorer and you will find the created image segments.
 ![image](https://github.com/user-attachments/assets/748594e3-4cb5-433d-8a94-f46c36367fd9)
 
@@ -93,7 +95,7 @@ Open GIMP and check that the plugins appear. There are 3 types - 0.5km, 1km and 
 ![dataSet](https://github.com/user-attachments/assets/9e8bafc4-4684-47f1-8096-47b6f1ff1784)
 
 
-# Building images
+# Building complete disks in GIMP
 1. Open the desired segments as layers under File -> open as layers
 2. Reverse layer order (under layer -> stack) and check the layers go up in ascending order.
 3. Goto to layer menu and select GK-2A submenu and choose the option for joining.
