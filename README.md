@@ -36,46 +36,52 @@ https://youtu.be/yJCwNY3K8kQ
 # How to extract from BBFRAMES
 BBFrames is the first layer output by the TBS6903x. The UHRIT files are located directly inside. Infact, you can see the bbframe headers when you inspect the output.<p>
 ![BBheader](https://github.com/user-attachments/assets/115ec0f4-57ef-48aa-ad3f-1d8759176d04)
-The first task is to remove the bbheaders and join the frames. Make a folder for your work e.g. `E:\SDR\GK-2A\UHRIT`. Copy the python files `new.py` and `RemoveSpaceHeaders.py` to this folder. 
+The first task is to remove the bbheaders and join the frames.  
 
 <br>Goto DOS prompt and run `python new.py "path and name to the transport stream.ts"` which will produce an output file `test2.bin` in your folder. For example:
-`E:\SDR\GK-2A\UHRIT>python new.py "E:\DVB_stream\0.0E_1070.011_H_15622_(2025-04-12 16.16.48)_dump.ts"`
+`E:\SDR\GK-2A\UHRIT>python new.py "location\0.0E_1070.011_H_15622_(2025-04-12 16.16.48)_dump.ts"`
 <br>
-Goto a hexeditor and open `test2.bin`. This contains all 23 segments per channel for which there are 16.<br>
+
 ## How to extract from CADU
 If are using an SDR and software (e.g. Satdump) that receives and demodulates the DVB-S2 signal, or skips the BBFRAMES and outputs the CADU directly, the above code will also work. You just need to type:
-`E:\SDR\GK-2A\UHRIT>python new.py "E:\file.cadu"`
+`python new.py "location\file.cadu"`
 
-# Get the segment
-Goto the beginning of the segment ("3GEOS" marks the start, so always search this). Put the cursor after the "÷" sign.
-Then from here select all the bytes until you reach the null bytes (the dots) preceeding the next segment. Note the "3GEOS" marking the start of the next segment.<br>
-<br>
-![image](https://github.com/user-attachments/assets/0dcd07c9-4881-43cc-890e-10324de94c87)
-![image](https://github.com/user-attachments/assets/52fc925f-169f-450c-a134-4b5363c926cd)
+# Build the image
 
-Note I use HxD hex editor (https://mh-nexus.de/en/hxd/). There are some useful shortcuts, e.g. 
-1. Alt+Insert copies the current offset position.
-2. Ctrl+E allows you to select data range using that offset as a starting point (paste in the offset)<br>
+Goto a hexeditor and open `test2.bin`. This contains all 23 segments per channel for which there are 16.<br>You need to find the channel you want, e.g. IMG_FD_052_VI004_20240914_084736. This is subdivided into segments 1-23. Make a note of this.
 
-![image](https://github.com/user-attachments/assets/c97266f6-4028-48e1-8480-d135e3b8d5a9)
+Execute "make.bat" and enter the channel name, e.g. IMG_FD_052_VI004_20240914_084736 (if you want other channels replace VI004 with e.g. VI005 etc). Then enter the segments 1 through 23.
 
-Copy the selection and paste in a new file. Save as "test3.bin" to the usual folder.
-Goto dos prompt and run `python removespaceheaders.py`. It should output a uhrit file such as:
-`IMG_FD_043_VI004_20250412_071736_18.uhrit`
+`E:\SDR\GK-2A\UHRIT>make.bat`<br>
+`Channel?IMG_FD_052_VI004_20240914_084736`<br>
+`FirstSegment(1-23)?1`<br>
+`LastSegment(1-23)?23`<br>
 
-# Decryption and image
-At this point, you can use Sam's (VKSDR) code to produce the output images in a similar fashion to LRIT and HRIT. Unfortunately, SatDump cannot work with .xrit files, so this process needs to be done manually.
-<br>See the github site:
-https://github.com/sam210723/xrit-rx<br>
-1. Open `lrit-img.py` and change the image format. UHRIT image format uses jpeg2000 format. If you open "lrit-img.py" and edit the part as follows.<br>
-![image](https://github.com/user-attachments/assets/3b305359-aad4-4544-96f5-ff932a461fae)
-1. Run `python xrit-decrypt.py` to decrypt the uhrit file.<br>
-   The command is `python xrit-decrypt.py <decrypted key message name(file.bin.dec)> <uhrit file(.uhrit)>`
-3. Run `python lrit-img.py` to output the image file.<br>
-   The command is `python lrit-img.py <decrypted uhrit file (uhrit.dec)>`
+Go into explorer and you will find the created image segments.
+![image](https://github.com/user-attachments/assets/748594e3-4cb5-433d-8a94-f46c36367fd9)
+
+
+# GIMP plugins
+To join the segments together, you will need GIMP. Install the plugins to the following folder in GIMP:
+
+![image](https://github.com/user-attachments/assets/8c0a3709-7143-402f-8733-baaa9d137cdb)
+
+Open GIMP and check that the plugins appear. There are 3 types - 0.5km, 1km and 2km resolutions.
+![image](https://github.com/user-attachments/assets/963b835f-c595-4941-b0d7-ae2d8467ac68)
+![dataSet](https://github.com/user-attachments/assets/9e8bafc4-4684-47f1-8096-47b6f1ff1784)
+
+
+# Building images
+1. Open the desired segments as layers under File -> open as layers
+2. Reverse layer order (under layer -> stack) and check the layers go up in ascending order.
+3. Goto to layer menu and select GK-2A submenu and choose the option for joining.
+4. Resize the canvas under image -> fit canvas to layers.
+5. Then merge the layers.
+
+You should get a full image. 
+
 # Results
-The above procedure will result in just one segment. If you have the time, you can decode all 23 segments in a channel. Unfortunately I have not managed to automate this part. <br>Also if you want full RGB images, you will need the VI004, VI005, VI006 channel contributions.<br>
-The below images have been produced using 2 segments - which is good enough to get high resolution images.<br>
+
 ![lab-compose3](https://github.com/user-attachments/assets/68579833-3bc5-4cfa-9de9-abc7273a8683)<p>
 ![image](https://github.com/user-attachments/assets/d313bdad-8e7a-46a6-a971-248e67d46237)<p>
 ![image](https://github.com/user-attachments/assets/5e6a076f-022b-4765-930d-c72e0da298f0)<p>
