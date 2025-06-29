@@ -10,7 +10,7 @@ There are 2 methods to get the DVB-S2 signal:
    SatDump can demodulate DVB-S2. See: https://www.satdump.org/
    ![SatDump](https://github.com/user-attachments/assets/31bf75a3-d5ca-4e62-ad80-0b38b10400e9)
 
-3. Using a commercial DVB-S2 receiver. The advantage is that a hardware DVB-S2 receiver can afford the user smaller dishes due to better lock at lower SNR. If using laptop you will need a PCI to SmartExpress socket (if your laptop has one)<p>
+3. Using a commercial DVB-S2 receiver. The advantage is that a hardware DVB-S2 receiver can afford the user smaller dishes due to better lock at lower SNR. If using laptop you will need a PCI to ExpressCard (if your laptop has one).<p>
    ![image](https://github.com/user-attachments/assets/92f19a46-60df-4a15-94b2-1e21b97f5998)
 # Methods for decoding images
 1. SatDump - no decoder available
@@ -22,8 +22,8 @@ There are 2 methods to get the DVB-S2 signal:
 4. LNA (30-40 dB) - buy from used sellers like ebay.
 5. X-band downconverter to L-band<br>
    My version is from https://m0kds.com/
-7. TBS6903x or later: Receivers with USB will not be able to transport the frames.<br>
-   If using laptop you will need a PCI to SmartExpress socket (if your laptop has one)
+7. TBS6903x or later: It must be over PCI. Receivers with USB output will not be able to transport the frames.<br>
+   If using laptop you will need a PCI to ExpressCard socket (if your laptop has one).
    
 
 9. PC running EBSPro or BBFRAME collector. Make sure your card supports BBFRAMES and set this in the ini file. In EBSPro, the line in the ini file needs to say:
