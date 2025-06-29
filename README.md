@@ -33,6 +33,28 @@ There are 2 methods to get the DVB-S2 signal:
 # Video
 Watch this video to get an overview:<br>
 https://youtu.be/yJCwNY3K8kQ
+
+# Preparation
+1. Create a folder called UHRIT, e.g. E:\SDR\GK-2A\UHRIT
+2. Copy the scripts: RemoveSpaceHeaders.py , new.py, Getsegment.py to this folder
+3. Copy the batch script "make.bat" and "make-halfscale.bat" to this folder
+
+## Image and decryption
+Files are created under the extension ".uhrit". To convert to images requires lrit-img.py which is available from VKSDR and the github site here: https://github.com/sam210723/xrit-rx<br>
+Download the release "xrit-rx.zip" and extract to the folder you created.
+Rename the folder "xrit-rx" to "uhrit-rx".
+Place your decryption key message file (.bin.dec) into the uhrit-rx folder. As in uhrit-rx\xxxx.bin.dec
+
+Images are saved under jpeg2000. Go into the "tools" folder under uhrit-rx and open "lrit-img.py" and adjust it in the following places:
+![image](https://github.com/user-attachments/assets/88f30293-bfc5-40a2-9e55-c21197c10481)
+![image](https://github.com/user-attachments/assets/f45f1945-7675-4a39-b6ee-313aa9790ef7)
+
+Save this to another file called "uhrit-img.py" in the same location.
+
+The "#img=img.resize((img.width // 2, img.height // 2)) #for half scale" is for creating half the full resolution. Useful for VI006 to reduce it down to 1km from 0.5km to combine with VI004,VI005.
+
+Un-comment this out (delete the #) and save this to another file called "uhrit-img-halfscale.py" in the same location.
+
 # How to extract from BBFRAMES
 BBFrames is the first layer output by the TBS6903x. The UHRIT files are located directly inside. Infact, you can see the bbframe headers when you inspect the output.<p>
 ![BBheader](https://github.com/user-attachments/assets/115ec0f4-57ef-48aa-ad3f-1d8759176d04)
