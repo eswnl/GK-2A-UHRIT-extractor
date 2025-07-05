@@ -39,6 +39,9 @@ https://youtu.be/yJCwNY3K8kQ
 2. Copy the scripts: RemoveSpaceHeaders.py , new.py, Getsegment.py to this folder
 3. Copy the batch script "make.bat" and "make-halfscale.bat" to this folder
 
+## Recording
+A DVB-S2 stream for a full disk containing all 16 channels begins transmission at every 7th minute of the hour (e.g. xx:07, xx:17) and lasts for about 6 minutes. This requires about 2 GB of disk space.
+
 ## Image and decryption
 Files are created under the extension ".uhrit". To convert to images requires lrit-img.py which is available from VKSDR and the github site here: https://github.com/sam210723/xrit-rx<br>
 Download the release "xrit-rx.zip" and extract to the folder you created.
