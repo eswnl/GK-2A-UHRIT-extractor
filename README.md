@@ -127,5 +127,3 @@ You should get a full image.
 
 ## Getting full (22k) resolution RGB.
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
-
-
