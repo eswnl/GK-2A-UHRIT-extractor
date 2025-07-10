@@ -30,6 +30,13 @@ There are 2 methods to get the DVB-S2 signal:
    `FrameMode=1`<p>
     ![tbs6903x_4](https://github.com/user-attachments/assets/52d2771d-7deb-4aa5-94a5-ce1048592547)
 
+Put the LNA next to the feed and if possible, the downconverter as well. If you are going to use coax, use low loss semi rigid coax on the high frequency side. The output of the downconverter will likely be in the L-band, so coax is not too critical here. You need to decide how your LNA and downconverter is going to get power, but be aware that receiver cards for satellite will have option to output DC to power to an LNB, which may or may not be needed. 
+
+# Software needed
+1. GIMP for editing images
+2. Python - download from https://www.python.org/downloads/
+3. EBS-pro or receiver software compatible with TBS6903x / SatDump if you are using SDR.
+
 # Video
 Watch this video to get an overview:<br>
 https://youtu.be/yJCwNY3K8kQ
