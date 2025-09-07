@@ -16,7 +16,7 @@ There are 2 methods to get the DVB-S2 signal:
 1. SatDump - in progress
 2. Python scripts - this is the method we will look at here. These simple scripts will simply locate the image portions without any error checking. But if your SNR is plenty and the DVB-S2 is doing its error correction, this method should be able to get images with no problem.
 # Equipment needed
-<img width="1065" height="801" alt="image" src="https://github.com/user-attachments/assets/3d7f23d3-a21d-4d87-9eaf-36583dcfd65e" />
+<img width="532" height="400" alt="image" src="https://github.com/user-attachments/assets/3d7f23d3-a21d-4d87-9eaf-36583dcfd65e" />
 
 1. 1.5m or larger prime dish. A mesh dish with holes no larger than 4mm will also work (1/10 lambda rule).
 2. X-band feed. Make one or buy commercial version + teflon for circular polarisation.<br>
