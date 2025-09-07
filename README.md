@@ -27,7 +27,7 @@ There are 2 methods to get the DVB-S2 signal:
 7. TBS6903x or later: It must be over PCI. Receivers with USB output will not be able to transport the frames.<br>
    If using laptop you will need a PCI to ExpressCard socket (if your laptop has one).   
 
-8. PC running EBSPro or BBFRAME collector. Make sure your card supports BBFRAMES and set this in the streamreader.ini file. In EBSPro, the line in the file needs to say:
+8. PC running EBSPro or BBFRAME collector. Make sure your card supports BBFRAMES and set this in the streamreader.ini file. In the EBSPro folder, the line in the file needs to say:
    `FrameMode=1`<p>
     ![tbs6903x_4](https://github.com/user-attachments/assets/52d2771d-7deb-4aa5-94a5-ce1048592547)
 
