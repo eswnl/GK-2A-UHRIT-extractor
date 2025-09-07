@@ -138,12 +138,14 @@ You should get something similar to the following image:
 You can adjust the brightness and the curves of each colour in turn until you get the image you want.
 
 ## Natural colour
-This is used for emphasising land/vegetation and low temperature cloud tops.
-Red = NR016
-Green = VI008
-Blue = VI006
+This is used for emphasising land/vegetation and low temperature cloud tops.<br>
+Red = NR016<br>
+Green = VI008<br>
+Blue = VI006<br>
 
 ![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)
 
 ## Getting full (22k) resolution RGB.
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
+See the following website for more information:<br>
+https://earthobservatory.nasa.gov/blogs/earthmatters/2017/06/13/how-to-pan-sharpen-landsat-imagery/
