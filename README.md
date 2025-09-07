@@ -117,14 +117,33 @@ You should get a full image.
 
 # Results
 
-![lab-compose3](https://github.com/user-attachments/assets/68579833-3bc5-4cfa-9de9-abc7273a8683)<p>
-![image](https://github.com/user-attachments/assets/d313bdad-8e7a-46a6-a971-248e67d46237)<p>
-![image](https://github.com/user-attachments/assets/5e6a076f-022b-4765-930d-c72e0da298f0)<p>
-![image](https://github.com/user-attachments/assets/5cfb1861-a25d-4ff9-aa56-d57da0c89528)<p>
-![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)<p>
-![image](https://github.com/user-attachments/assets/e60a1876-a401-4f73-8956-64492ec53154)<p>
+## Editing tips:
+The primary image you get when you combine the VI006,VI005,VI004 images is as follows:<p>
+<img width="953" height="953" alt="image" src="https://github.com/user-attachments/assets/61bd6c8c-ba58-42ab-933f-09d81633c7d9" /></p>
 
+The uncorrected image makes it difficult to see the land and the atmosphere scatters a lot of blue light. In GIMP, we can try and enhance the image.
 
+## To get an enhanced image 
+First adjust the `hue-chroma` in GIMP:
+<p><img width="371" height="305" alt="image" src="https://github.com/user-attachments/assets/64db90a1-b0e6-4635-97dd-2bfbc9dba201" /></p>
+
+Then go to `colors` and then `curves` and adjust it so it looks something like this:
+<p><img width="530" height="632" alt="image" src="https://github.com/user-attachments/assets/fcd8e846-f52b-462e-81b8-3d62708f1bb6" /></p>
+The white top line will set the overall brightness. Move this curve to make the image brighter (but not too much or the cloud tops will look washed out).
+
+You should get something similar to the following image:
+<p><img width="2200" height="2200" alt="image" src="https://github.com/user-attachments/assets/e5839e64-8ac9-462f-8fe6-ec7a827f9476" />
+</p>
+
+You can adjust the brightness and the curves of each colour in turn until you get the image you want.
+
+## Natural colour
+This is used for emphasising land/vegetation and low temperature cloud tops.
+Red = NR016
+Green = VI008
+Blue = VI006
+
+![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)
 
 ## Getting full (22k) resolution RGB.
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
