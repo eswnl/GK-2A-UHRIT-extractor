@@ -118,30 +118,39 @@ You should get a full image.
 # Results
 
 ## Editing tips:
-The primary image you get when you combine the VI006,VI005,VI004 images is as follows:<p>
+The primary image you get when you combine the `VI006`,`VI005`,`VI004` images is as follows:<p>
 <img width="953" height="953" alt="image" src="https://github.com/user-attachments/assets/61bd6c8c-ba58-42ab-933f-09d81633c7d9" /></p>
 
 The uncorrected image makes it difficult to see the land and the atmosphere scatters a lot of blue light. In GIMP, we can try and enhance the image.
 
-## To get an enhanced image 
-First adjust the `hue-chroma` in GIMP:
-<p><img width="371" height="305" alt="image" src="https://github.com/user-attachments/assets/64db90a1-b0e6-4635-97dd-2bfbc9dba201" /></p>
+## To get an enhanced image
+The best method I found was to adjust the GIMP colour curves. You can find this under `colors` and `curves`. Before adjusting, it is best to exclude the black area surrounding the disk. Click `select` then `by color` and then click on the black area. Then under the same menu, click `invert`. This will select and isolate the disk portion in the image.<p>
+<img width="747" height="545" alt="image" src="https://github.com/user-attachments/assets/d292ff5e-0308-4942-b573-b655df303188" /></p>
 
-Then go to `colors` and then `curves` and adjust it so it looks something like this:
-<p><img width="530" height="632" alt="image" src="https://github.com/user-attachments/assets/fcd8e846-f52b-462e-81b8-3d62708f1bb6" /></p>
-The white top line will set the overall brightness. Move this curve to make the image brighter (but not too much or the cloud tops will look washed out).
-
-You should get something similar to the following image:
-<p><img width="2200" height="2200" alt="image" src="https://github.com/user-attachments/assets/e5839e64-8ac9-462f-8fe6-ec7a827f9476" />
+### Brightness
+First thing we notice is the image is very dark. Go to `colors` and click `curves`. Make sure `Value` is selected in the channel box. Click the white diagonal line in the middle and draw it into an arc as shown. Moving the point above the diagonal will brighten the image. Moving it below will darken the image.<p>
+<img width="1159" height="829" alt="image" src="https://github.com/user-attachments/assets/c3d85197-3fc5-43eb-94b4-7b20b6ab7f5e" /></p>
+### Colours
+Once you have made the image brighter (without washing out the whites in the clouds), the next step is to adjust each of the red, green and blue channels individually. When you select a colour channel, its histogram will display where the lines are. The corresponding line for that channel will be available for adjustment. For each colour, you want to click the bottom left corner of the line and drag it sideways (the black point) so it is close to where the histogram starts to rise. Dragging the top right corner of the line changes the white point, although I found no need to adjust this. <br>When finished, you should get a much improved image.
+<p><img width="1021" height="789" alt="image" src="https://github.com/user-attachments/assets/57ef9c94-2513-4f0b-a314-e6de37075192" />
 </p>
 
-You can adjust the brightness and the curves of each colour in turn until you get the image you want.
+### Final tuning
+<b>The blue scattering effect has disappeared but the land areas are still difficult to see.</b> So it is a matter of tweaking the points, then re-adjusting the brightness curve to get the best results. This requires some patience. An example output is shown below.<b> Note: If you want to show green vegetation</b>, you can bump up the black/white points of the `red channel` as shown.<p>
+<img width="1029" height="805" alt="image" src="https://github.com/user-attachments/assets/f01172ec-1ca7-4143-af62-f325215c47c8" /></p>
+Finally if any tone appears too strong, e.g. the ocean appears "too green", you can make tiny adjustments in the `Hue-saturation`.
+<p><img width="180" height="280" alt="image" src="https://github.com/user-attachments/assets/e90d781a-a0aa-4ed8-aaca-e9acd345369f" />
+</p>
+
+### References
+https://medium.com/@robsimmon/making-sense-of-satellite-data-an-open-source-workflow-color-correction-with-gimp-7ddae0360fea
+
 
 ## Natural colour
 This is used for emphasising land/vegetation and low temperature cloud tops.<br>
-Red = NR016<br>
-Green = VI008<br>
-Blue = VI006<br>
+Red = `NR016`<br>
+Green = `VI008`<br>
+Blue = `VI006`<br>
 
 ![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)
 
