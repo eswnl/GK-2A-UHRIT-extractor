@@ -97,7 +97,9 @@ Go into explorer and you will find the created image segments.
 
 
 # GIMP plugins
-To join the segments together, you will need GIMP. Install the plugins to the following folder in GIMP:
+(<b>Warning: These plugins only work in GIMP2, not GIMP3. You will need to install GIMP2 to use these plugins</b>)
+
+To join the segments together, you will need GIMP. Install the plugins to the following folder in GIMP:<br>
 
 ![image](https://github.com/user-attachments/assets/8c0a3709-7143-402f-8733-baaa9d137cdb)
 
