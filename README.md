@@ -155,7 +155,8 @@ When you select a colour channel, its histogram will display where the lines are
 An example setting that gives similar appearance to the official satellite images can be downloaded from the `curves` folder above. Copy the text and add it to your `GimpCurvesConfig.settings` under the `filters` folder in your App data, similar to the plugins.
 
 ### Final image
-<img width="685" height="683" alt="image" src="https://github.com/user-attachments/assets/6194d482-1b6f-45a8-a1bd-4dd12d1f8537" />
+<img width="681" height="681" alt="image" src="https://github.com/user-attachments/assets/29ce4b1a-d1d2-44c0-8ca8-8e7c18f189eb" />
+
 
 
 ### References
