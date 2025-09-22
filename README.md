@@ -27,9 +27,13 @@ There are 2 methods to get the DVB-S2 signal:
 7. TBS6903x or later: It must be over PCI. Receivers with USB output will not be able to transport the frames.<br>
    If using laptop you will need a PCI to ExpressCard socket (if your laptop has one).   
 
-8. PC running EBSPro or BBFRAME collector. Make sure your card supports BBFRAMES and set this in the streamreader.ini file. In the EBSPro folder, the line in the file needs to say:
-   `FrameMode=1`<p>
-    ![tbs6903x_4](https://github.com/user-attachments/assets/52d2771d-7deb-4aa5-94a5-ce1048592547)
+8. PC running EBSPro. Make sure your card supports BBFRAMES and set this in the `streamreader.ini` file in the EBSPro folder:
+   <br><br>`FrameMode=1`
+
+9. Upon successful lock by the receiver, the parameters will show. Try to aim for an SNR of 7.0 dB or above.
+   
+      ![tbs6903x_4](https://github.com/user-attachments/assets/52d2771d-7deb-4aa5-94a5-ce1048592547)
+
 
 Put the LNA next to the feed and if possible, the downconverter as well. If you are going to use coax, use low loss semi rigid coax on the high frequency side. The output of the downconverter will likely be in the L-band, so coax is not too critical here. You need to decide how your LNA and downconverter is going to get power, but be aware that receiver cards for satellite will have option to output DC to power to an LNB, which may or may not be needed. 
 
