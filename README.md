@@ -28,9 +28,9 @@ There are 2 methods to get the DVB-S2 signal:
    If using laptop you will need a PCI to ExpressCard socket (if your laptop has one).   
 
 8. PC running EBSPro. Make sure your card supports BBFRAMES and set this in the `streamreader.ini` file in the EBSPro folder:
-   <br><br>`FrameMode=1`
+   <br><br>`FrameMode=1`<br><br>Also make sure the card can recieve the frequency output by the downconverter. In my case, the downconverter oscillator is set to 7000 MHz meaning the output frequency is 1070 MHz (8070 - 7000).
 
-9. Upon successful lock by the receiver, the parameters will show. Try to aim for an SNR of 7.0 dB or above.
+9. Upon successful lock by the receiver, the parameters will show. Signal lock can be achieved down to 6.6 dB, but try to aim for an SNR of 7.0 dB or above.
    
       ![tbs6903x_4](https://github.com/user-attachments/assets/52d2771d-7deb-4aa5-94a5-ce1048592547)
 
