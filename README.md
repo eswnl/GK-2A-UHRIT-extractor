@@ -175,7 +175,16 @@ Blue = `VI006`<br>
 
 ![image](https://github.com/user-attachments/assets/eed05f50-1810-4a9f-aa68-915ca2960663)
 
+## Fire hotspots
+Used to show fire hotspots. This makes use of the 3.9um band that is sensitive to the radiation from the fire.<br>
+Red = `SW038 (inverted)`<br>
+Green = `VI008`<br>
+Blue = `VI006`<br>
+
+<img width="1335" height="870" alt="image" src="https://github.com/user-attachments/assets/d1c6d173-2c8d-48f0-b249-df443d77868c" />
+
 ## Getting full (22k) resolution RGB.
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
 See the following website for more information:<br>
 https://earthobservatory.nasa.gov/blogs/earthmatters/2017/06/13/how-to-pan-sharpen-landsat-imagery/
+
