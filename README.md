@@ -13,7 +13,7 @@ There are 2 methods to get the DVB-S2 signal:
 3. Using a commercial DVB-S2 receiver. The advantage is that a hardware DVB-S2 receiver can afford the user smaller dishes due to better lock at lower SNR. If using laptop you will need a PCI to ExpressCard (if your laptop has one).<p>
    ![image](https://github.com/user-attachments/assets/92f19a46-60df-4a15-94b2-1e21b97f5998)
 # Methods for decoding images
-1. SatDump - in progress
+1. SatDump - in progress. A beta version is in progress.
 2. Python scripts - this is the method we will look at here. These simple scripts will simply locate the image portions without any error checking. But if your SNR is plenty and the DVB-S2 is doing its error correction, this method should be able to get images with no problem.
 # Equipment needed
 <img width="532" height="400" alt="image" src="https://github.com/user-attachments/assets/3d7f23d3-a21d-4d87-9eaf-36583dcfd65e" />
@@ -71,7 +71,13 @@ The "#img=img.resize((img.width // 2, img.height // 2)) #for half scale" is for 
 
 Un-comment this out (delete the #) and save this to another file called "uhrit-img-halfscale.py" in the same location.
 
-# How to extract from BBFRAMES
+# Create BBFRAMES file only.
+The BBFrames from the TBS6903x are misaligned so cannot be input just yet. To correct them you need to run the following:
+`python new_bbframe_only.py "location\0.0E_1070.011_H_15622_(2025-04-12 16.16.48)_dump.ts"`
+
+You should get an output "bbframe_output.bin" which can be input into any BBFrame decoder e.g. SatDump
+
+# How to extract the uhrit from BBFRAMES
 BBFrames is the first layer output by the TBS6903x. The UHRIT files are located directly inside. Infact, you can see the bbframe headers when you inspect the output.<p>
 ![BBheader](https://github.com/user-attachments/assets/115ec0f4-57ef-48aa-ad3f-1d8759176d04)
 The first task is to remove the bbheaders and join the frames.  
@@ -80,9 +86,11 @@ The first task is to remove the bbheaders and join the frames.
 `E:\SDR\GK-2A\UHRIT>python new.py "location\0.0E_1070.011_H_15622_(2025-04-12 16.16.48)_dump.ts"`
 <br>
 
-## How to extract from CADU
+## How to extract the uhrit from CADU
 If are using an SDR and software (e.g. Satdump) that receives and demodulates the DVB-S2 signal, or skips the BBFRAMES and outputs the CADU directly, the above code will also work. You just need to type:
 `python new.py "location\file.cadu"`
+
+
 
 # Build the image
 
@@ -188,4 +196,20 @@ Blue = `VI006`<br>
 The UHRIT data contains 1 channel at 22k resolution (VI006). A technique used in LandSat imagery allows you full 22k resolution RGB images, if the high resolution channel is mapped onto the lower resolution RGB image. The advantage is that you only need one channel to be at high resolution.
 See the following website for more information:<br>
 https://earthobservatory.nasa.gov/blogs/earthmatters/2017/06/13/how-to-pan-sharpen-landsat-imagery/
+
+## Hybrid green
+Red = `VI006`<br>
+Green = About 8% `VI008`added to `VI005` 92%<br>
+Blue = `VI004`<br>
+<br>
+
+Both Himawari and GK-2A green sensors are not true green shown by the spectral response. 
+<img width="701" height="573" alt="image" src="https://github.com/user-attachments/assets/c8872f44-32c0-413e-bffe-133457b3e134" />
+<br>Source: https://www.data.jma.go.jp/mscweb/en/aomsuc6_data/oral/s02-04.pdf<br><br>
+
+This produces land that is too red. To correct this, you need to mix some of the NIR (VI008) to the green (VI005). This can be done in GIMP using the levels option.<br><br>
+
+<img width="1370" height="784" alt="image" src="https://github.com/user-attachments/assets/0cf0b798-f041-4a63-900d-551c3922ff24" />
+
+
 
